@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap");
+
+:root {
+  --rose: #c2185b;
+  --rose-dark: #941447;
+  --ink: #422b34;
+  --muted: #74636a;
+  --blush: #ffe1eb;
+  --cream: #fdf8ef;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", system-ui, sans-serif;
+}
+.nav {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 8%;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--rose);
+  text-decoration: none;
+}
+.nav-logo svg { width: 30px; height: 30px; }
+.nav-logo span {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.nav-links { display: flex; gap: 38px; }
+.nav-links a {
+  position: relative;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 4px;
+  transition: color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--rose); }
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--rose);
+  border-radius: 2px;
+}
+.nav-actions { display: flex; gap: 8px; }
+.nav-actions button {
+  display: grid;
+  place-items: center;
+  width: 42px; height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-actions button:hover { background: white; color: var(--rose); }
+
+.nav a:focus-visible, .nav-actions button:focus-visible {
+  outline: 3px solid #f08fb4;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .nav { padding: 20px 6%; }
+  .nav-links { display: none; }
+}
